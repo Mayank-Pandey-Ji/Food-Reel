@@ -5,11 +5,6 @@ const connectDB = require('./src/db/db')
 
 connectDB();
 
-if(process.env.NODE_ENV !== "production")
-{
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT , ()=> console.log("Server is Running on PORT: ", PORT));
-}
-
-// export server for vercel
-module.exports = app;
+const PORT = process.env.PORT || 5000;
+app.listen(PORT , ()=> console.log("Server is Running on PORT: ", PORT));
+// export server for verce
