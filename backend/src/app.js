@@ -7,7 +7,12 @@ const foodRoutes = require('./routes/food.route')
 const foodPartnerRoutes = require('./routes/food-partner.route')
 const app = express();
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+  origin: "https://food-reel-five.vercel.app/",          
+  credentials: true,        
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization','X-Requested-With','Accept']
+}));
 app.use(cookieParser());
 app.use(express.json());
 
