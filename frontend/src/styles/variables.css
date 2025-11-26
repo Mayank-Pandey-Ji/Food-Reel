@@ -1,0 +1,54 @@
+:root{
+  /* Theme colors (light) */
+  --color-bg: #f7f8fb;
+  --color-card: #ffffff;
+  --color-text: #0f1724;
+  --color-muted: #6b7280;
+  --color-border: #e6e9ef;
+  --color-primary: #2563eb;
+  --color-primary-contrast: #ffffff;
+  --color-input-bg: #ffffff;
+  /* Background gradient for light theme (top -> bottom) */
+  --bg-grad-start: #f0f6ff;
+  --bg-grad-end: #ffffff;
+  /* Description overlay tokens (light)
+     Provides a translucent light backdrop with dark text for readability
+  */
+  --desc-bg: transparent;
+  --desc-color: var(--color-text);
+  --desc-border: rgba(15,23,36,0.06);
+  /* action and nav backgrounds (light) */
+  --action-bg: rgba(0,0,0,0.06);
+  --nav-bg: rgba(255,255,255,0.9);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-bg: #081025;
+    --color-card: #071025;
+    --color-text: #e6eef8;
+    --color-muted: #9aa6b2;
+    --color-border: #122433;
+    --color-primary: #3b82f6;
+    --color-primary-contrast: #062344;
+    --color-input-bg: #0b2133;
+    /* Dark background gradient */
+    --bg-grad-start: #041428;
+    --bg-grad-end: #061d36;
+    /* Description overlay tokens (dark)
+       Provides a translucent dark backdrop with light text for readability
+    */
+    --desc-bg: transparent;
+    --desc-color: var(--color-primary-contrast);
+    --desc-border: rgba(255,255,255,0.04);
+    /* action and nav backgrounds (dark) */
+    --action-bg: rgba(255,255,255,0.04);
+    --nav-bg: rgba(2,6,12,0.6);
+  }
+}
+
+/* Helpful token for reduced motion */
+:root{
+  --radius: 10px;
+  --shadow: 0 6px 18px rgba(8,18,37,0.06);
+}
