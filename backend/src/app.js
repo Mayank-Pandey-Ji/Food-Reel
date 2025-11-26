@@ -8,11 +8,20 @@ const foodPartnerRoutes = require('./routes/food-partner.route')
 const app = express();
 const cors = require('cors');
 app.use(cors({
-  origin: "https://food-reel-five.vercel.app",          
-  credentials: true,        
+  origin: (origin, cb) => {
+    const allowed = "https://food-reel-five.vercel.app";
+    if (!origin) return cb(null, true);
+    const clean = origin.replace(/\/+$/, "");
+    if (clean === allowed) return cb(null, true);
+    cb(new Error("CORS blocked: " + origin));
+  },
+  credentials: true,
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization','X-Requested-With','Accept']
 }));
+
+app.options("*", cors());
+
 app.use(cookieParser());
 app.use(express.json());
 
