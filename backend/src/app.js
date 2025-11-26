@@ -7,10 +7,7 @@ const foodRoutes = require('./routes/food.route')
 const foodPartnerRoutes = require('./routes/food-partner.route')
 const app = express();
 const cors = require('cors');
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true,
-}));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
