@@ -18,7 +18,6 @@ async function authfoodPartnerMiddleware(req , res , next){
                 message : "Food partner not found , please login again"
             })
         }
-        console.log(foodPartner)
         req.foodPartner = foodPartner;
         next();
     }
@@ -33,7 +32,6 @@ async function authfoodPartnerMiddleware(req , res , next){
 
 async function authUserMiddleware(req , res , next){
     const token = req.cookies.token;
-    console.log("chala hai")
     if(!token){
         return res.status(401).json({
             message : "Please login first"
