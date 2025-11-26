@@ -3,15 +3,13 @@ require('dotenv').config();
 const app = require('./src/app');
 const connecDB = require('./src/db/db')
 
-app.use('/' , (req, res , next) => {
-  connecDB();
-  next();
-});
+await connectDB();
 
+if(process.env.NODE_ENV !== "production")
+{
+    const PORT = process.env.PORT || 5000;
+    server.listen(PORT , ()=> console.log("Server is Running on PORT: ", PORT));
+}
 
-// not to use app.listen here as we are using verel for deployment which is serverless
-// app.listen(3000, () => {
-//   console.log('Server is running on port 3000');
-// });
-
-module.exports = app;
+// export server for vercel
+export default server;
