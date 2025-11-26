@@ -3,7 +3,10 @@ require('dotenv').config();
 const app = require('./src/app');
 const connecDB = require('./src/db/db')
 
-connecDB();
+app.use('/' , (req, res , next) => {
+  connecDB();
+  next();
+});
 
 
 // not to use app.listen here as we are using verel for deployment which is serverless
