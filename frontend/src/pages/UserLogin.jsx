@@ -8,7 +8,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const response = await axios.post('http://localhost:3000/api/auth/user/login',{
+    const response = await axios.post('https://food-reel-qefk.onrender.com/api/auth/user/login',{
         email: email,
         password: password
     }, 

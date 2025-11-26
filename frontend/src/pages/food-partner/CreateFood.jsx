@@ -18,7 +18,7 @@ const CreateFood = () => {
     formData.append('video', video);
     formData.append('name', name);
     formData.append('description', description);
-    const response = await axios.post('http://localhost:3000/api/food', formData, {
+    const response = await axios.post('https://food-reel-qefk.onrender.com/api/food', formData, {
       withCredentials: true
     })
     if(response.data.status === 401)

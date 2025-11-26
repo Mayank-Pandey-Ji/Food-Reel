@@ -11,7 +11,7 @@ const PartnerRegister = () => {
         const name = e.target.business.value;
         const email = e.target.contact.value;
         const password = e.target.password.value;
-        const response = await axios.post('http://localhost:3000/api/auth/food-partner/register',{
+        const response = await axios.post('https://food-reel-qefk.onrender.com/auth/food-partner/register',{
             name: name,
             email: email,
             password: password

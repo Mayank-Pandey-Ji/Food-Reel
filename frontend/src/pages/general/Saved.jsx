@@ -9,7 +9,7 @@ const Saved = () => {
   useEffect(() => {   
       const fetchSaved = async () => {
           try {
-              const response = await axios.get('http://localhost:3000/api/food/save', {
+              const response = await axios.get('https://food-reel-qefk.onrender.com/api/food/save', {
                   withCredentials: true
               });
               console.log('Saved items response:', response);

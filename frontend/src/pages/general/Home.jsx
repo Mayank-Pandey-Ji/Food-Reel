@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import '../../styles/reels.css'
 import axios from 'axios'
 import { useNavigate , Link} from 'react-router-dom'
@@ -16,7 +16,7 @@ const Home = () => {
     async function fetchVideos() {
       try {
         setLoading(true)
-        const res = await axios.get('http://localhost:3000/api/food' , {withCredentials: true})
+        const res = await axios.get('https://food-reel-qefk.onrender.com/api/food' , {withCredentials: true})
         
         // response shape based on your example: { message, foodItems: [ ... ] }
         const foodItems = Array.isArray(res.data?.foodItems) ? res.data.foodItems : []
@@ -100,7 +100,7 @@ const Home = () => {
 
 
   async function handleLike(item) {
-    const response = await axios.post("http://localhost:3000/api/food/like", {foodId : item._id}, { withCredentials: true });
+    const response = await axios.post("https://food-reel-qefk.onrender.com/api/food/like", {foodId : item._id}, { withCredentials: true });
     if(response.data.like)
     {
       console.log("video Liked");
@@ -115,7 +115,7 @@ const Home = () => {
 
   async function handleSave(item) {
     // Implement save functionality here
-    const response = await axios.post("http://localhost:3000/api/food/save", {foodId : item._id}, { withCredentials: true });
+    const response = await axios.post("https://food-reel-qefk.onrender.com/api/food/save", {foodId : item._id}, { withCredentials: true });
     if(response.data.save) {
       console.log("video Saved");
       setItems(prevItems => prevItems.map(i => i._id === item._id ? { ...i, saveCount: (i.saveCount ?? 0) + 1 } : i));

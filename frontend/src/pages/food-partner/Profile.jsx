@@ -16,7 +16,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         setLoading(true)
-        const response = await axios.get(`http://localhost:3000/api/food-partner/${id}`, {
+        const response = await axios.get(`https://food-reel-qefk.onrender.com/api/food-partner/${id}`, {
           withCredentials: true,
         })
         console.log('API response:', response)               // log full response for debugging
