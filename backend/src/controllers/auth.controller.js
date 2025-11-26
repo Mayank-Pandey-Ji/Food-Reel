@@ -21,7 +21,13 @@ async function registerUser(req , res){
     const token = jwt.sign({
         id : user._id,
     } , process.env.JWT_SECRET);
-    res.cookie("token" , token );
+    res.cookie('token', token, {
+    httpOnly: true,                       // hide from JS
+    secure: process.env.NODE_ENV === 'production', // required for SameSite=None in prod
+    sameSite: 'none',                     // must be NONE for cross-site cookies
+    path: '/', 
+    maxAge: 7 * 24 * 60 * 60 * 1000       // 7 days
+    });
     return res.status(201).json({
         _id : user._id,
         fullName : user.fullName,
@@ -49,7 +55,13 @@ async function loginUser(req , res){
         id : user._id
     } , process.env.JWT_SECRET);
 
-    res.cookie("token" , token );
+     res.cookie('token', token, {
+        httpOnly: true,                       // hide from JS
+        secure: process.env.NODE_ENV === 'production', // required for SameSite=None in prod
+        sameSite: 'none',                     // must be NONE for cross-site cookies
+        path: '/', 
+        maxAge: 7 * 24 * 60 * 60 * 1000       // 7 days
+        });
     res.status(200).json({
         message : "Login successful" , 
         user : {
@@ -86,7 +98,13 @@ async function registerFoodPartner(req , res){
         id : foodPartner._id,
     } , process.env.JWT_SECRET);
 
-    res.cookie("token" , token );
+    res.cookie('token', token, {
+        httpOnly: true,                       // hide from JS
+        secure: process.env.NODE_ENV === 'production', // required for SameSite=None in prod
+        sameSite: 'none',                     // must be NONE for cross-site cookies
+        path: '/', 
+        maxAge: 7 * 24 * 60 * 60 * 1000       // 7 days
+        });
 
     return res.status(201).json({
         message : "Food Partner registered successfully" ,
@@ -116,7 +134,13 @@ async function loginFoodPartner(req , res){
     const token = jwt.sign({
         id : foodPartner._id
     } , process.env.JWT_SECRET);
-    res.cookie("token" , token );
+    res.cookie('token', token, {
+        httpOnly: true,                       // hide from JS
+        secure: process.env.NODE_ENV === 'production', // required for SameSite=None in prod
+        sameSite: 'none',                     // must be NONE for cross-site cookies
+        path: '/', 
+        maxAge: 7 * 24 * 60 * 60 * 1000       // 7 days
+        });
     res.status(200).json({
         message : "Login successful" , 
         foodPartner : {
